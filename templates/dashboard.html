@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="LinuC資格試験の対策サイト">
+<meta name="keywords" content="LPIC,LINUX,LinuC,Ubuntu,CentOS,プログラミング,IT,模擬試験,資格">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
+<!-- xterm.css -->
+<!-- <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+ -->
+<title>DashBoard</title>
+</head>
+<body>
+{% include 'includes/_navbar4_for_admin.html' %}
+{% include 'includes/_messages.html' %}
+<div class="container">
+	<br>
+	<h2>DashBoard  <small>Welcome {{session.username}}</small></h2>
+	<br>
+	<!-- tag control -->
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles" aria-selected="true">Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="practices-tab" data-toggle="tab" href="#practices" role="tab" aria-controls="practices" aria-selected="false">Practices</a>
+      </li>
+    </ul>
+
+    <!-- tag articles -->
+    <div class="tab-content" id="myTabContent">
+	    <div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
+
+			<a class="btn btn-success" href="/add_article"> Add Article</a>
+			<p>database name: articles; id INTEGER PRIMARY KEY, chapter, title, body, date</p>
+			<table class="table table-striped">
+				<tr>
+					<th>ID</th>
+					<th>Chapter</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			{% for article in articles %}
+				<tr>
+					<td>{{ article.id }}</td>
+					<td>{{ article.chapter }}章</td>
+					<td>{{ article.title }}</td>
+					<td>{{ article.date }}</td>
+					<td><a href="edit_article/{{ article.id }}" class="btn btn-secondary float-right">Edit</a></td>
+					<td>
+					<form action="{{ url_for('delete_article', id=article.id) }}" method="post">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+					</td>
+					<td><a href="article/{{ article.url }}" class="btn btn-success float-right">Article Page</a></td>
+				</tr>
+			{% endfor %}
+			</table>
+
+		</div>
+
+        <div class="tab-pane fade" id="practices" role="tabpanel" aria-labelledby="practices-tab">
+
+			<a class="btn btn-success" href="/add_practice"> Add Practice</a>
+			<p>database name: practices; id INTEGER PRIMARY KEY, chapter, question, choice1, choice2, choice3, choice4, answer</p>
+			<table class="table table-striped">
+				<tr>
+					<th>ID</th>
+					<th>Chapter</th>
+					<th>Question</th>
+					<th></th>
+					<th></th>
+				</tr>
+			{% for practice in practices %}
+				<tr>
+					<td>{{ practice.id }}</td>
+					<td>{{ practice.chapter }}章</td>
+					<td>{{ practice.question | safe }}</td>
+					<td><a href="edit_practice/{{ practice.id }}" class="btn btn-secondary float-right">Edit</a></td>
+					<td>
+					<form action="{{ url_for('delete_practice', id=practice.id) }}" method="post">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+					</td>
+					<td><a href="article/{{ practice.id }}" class="btn btn-success float-right">Article Page</a></td>
+				</tr>
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+<!--jquery -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+<!-- npm? -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<!-- bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- mathjax -->
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+
+</body>
+</html>

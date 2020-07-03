@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<div class="col-md-9 border-bottom border-right main" id="about-contents"> 
+
+<section id="general" class="container">
+    <h3>このサイトの概要</h3>
+    <p>
+    LinuCとはLinux技術者としての技術力を証明する認定資格です。<br>
+    当資格を発行しているのは、LPI-JAPANという民間の団体です。
+    </p>
+
+    <h4>Linuxとはなにか</h4>
+    <p>
+    Linuxというのは、コンピューターのOSの名前です。<br>
+    一般的にOSといえばWindowsやMacなどが有名ですが、これはパソコン用のOSであって、この世の中にはパソコンではないコンピューターもたくさんあります。<br>
+    たとえばGoogleやAmazonなどのWebサービスを配信するのもコンピューターで、これはサーバーコンピューターと言われています。<br>
+    Linuxというのはサーバーコンピューターでよく使われているOSなのです。<br>
+    現在多くのひとがPythonなどのプログラミング言語を勉強していますが、それらの言語で書かれたプログラムの多くはLinuxサーバーの上で動いています。<br>
+    またサーバーのOSにかぎらず、最近では家電に組み込み用のコンピューターのOSにもLinuxが採用されています。
+    そういうわけでLinuxを理解することで、世の中のコンピューターの仕組みの大半を理解することができます。<br>
+    </p>
+
+    <h4>Linucには３つのレベルがある</h4>
+    <p>
+    資格にはLevel1、Level2、Level3と３つのレベルがあり、それぞれの資格は異なる試験を受けて合格すれば資格が認定されます。<br>
+    レベル１に合格すると、Linuxシステムの構築、運用に関する基本的な知識と技術があるとみなされます。<br>
+    レベル２に合格すると、サーバーやネットワークを含むLinuxシステムの専門的な構築・運用・保守に関する知識と技術があるとみなされます。<br>
+    レベル３はさらにその上の最高レベルの知識と技術があるとされます。<br>
+    </p>
+</section>
+
+<section id="difference" class="container">
+    <h3>Lpic試験と何がちがう？</h3>
+    <p>
+    実は日本にはLinuCのほかにも「Lpic」というLinuxについての認定資格があります。<br>
+    LpicとLinuCでは発行している団体が異なっています。</p>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="text-center" scope="col" >資格名</th>
+          <th class="text-center"scope="col">LinuC</th>
+          <th class="text-center"scope="col">Lpic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">発行団体</td>
+          <td class="text-center">LPI-JAPAN</td>
+          <td class="text-center">LPI日本支部</td>
+        </tr>
+        <tr>
+          <td class="text-center">受験料</td>
+          <td class="text-center" colspan="2">１科目あたり16,500円(税込)</td>
+        </tr>
+        <tr>
+          <td class="text-center">優位性の期限</td>
+          <td class="text-center" colspan="2">５年間</td>
+        </tr>
+      </tbody>
+    </table>
+
+    びっくりするくらい違いがないのがわかるでしょう？<br>
+
+    <h4>LinuC創設の経緯</h4>
+    <p>
+    LinuCはLpicに比べると新しい資格です。その特徴は日本国内のニーズに特化するということのようです。<br>
+    その母体であるLPIは1999年にカナダでで創設された団体で、Linuxに関係する技術者を認定する目的で設立されました。
+    日本でももともとはLPI-JAPANがLpicをとりまとめて資格の認定発行をしていました。<br>
+    しかし2018年2月から、国内に特化した状況に対応するという名目で、LPI-JAPANがLPIから独立して新たにLinuCという資格を作り出しました。<br>
+    現在はLpicはLPI日本支部が、LinuCはLPI-JAPANが発行するという複雑な状況になっています。<br>
+    </p>
+
+    <p>
+    しかしおわかりのとおり、実はLpicとLinuCでは試験の内容には今のところ全く差はありません。<br>
+    LpicもLinuCと同様に３つのレベルがあり、レベルに相当する内容も全くおなじです。<br>
+    また日本国内においては、どちらの資格のほうが潰しが効くとかそういう差もありません。<br>
+    ですので好きなほうを受験されるといいと思います。<br>
+    大切なのはLinuxに関する確かな知識と技術を身につけることです。<br>
+    試験というのはそういった知識や技術を効率的に身につける手段だととらえるのがいいでしょう。<br>
+    そういうわけで当サイトでもLinuCに限らず、Lpicに関する情報も同様に発信していきます。<br>
+    </p>
+</section>
+
+<section id="detail" class="container">
+    <h3>試験の詳細</h3>
+    <p>
+    先ほど資格には３つのレベルがあると書きましたが、試験もそれに応じて異なってきます。<br>
+    そしてもちろんレベル１から順番に挑戦していかなければいけません。<br>
+    つまりレベル１を持っていないひとはレベル２や３の試験を受ける資格がないということです。<br>
+    <br>
+    101試験、102試験の２つに合格→Level１認定<br>
+    201試験、202試験の２つに合格→Level２認定<br>
+    300、303、304のいずれかの試験に１つに合格→Level３認定<br>
+    <br>
+    初心者の方はまずはレベル１の取得にむけて試験101と102の対策をすることになります。<br>
+    Level３は分野に特化した非常に専門的な内容のため、合格するべき試験はひとつでじゅうぶんのようです。<br>
+    </p>
+
+
+    <h4>試験日程と場所</h4>
+    <p>
+    LinuCもLpicもまずはオンラインで都合のいい日程と場所を予約します。<br>
+    ちなみにどちらも以下の全国各地のテストセンターから受験することができます。<br>
+    <a href="https://www.pearsonvue.co.jp/Documents/Japan-Downloads/TC_List/pvue_jp_TC_all.aspx">テストセンター一覧</a><br>
+    自宅のPCから受験することはできません。<br>
+    <br>
+    申し込み方法などの詳細を知りたい方は以下のリンクから情報を入手してください。<br>
+    <a href="https://linuc.org/exam/">LinuCの申し込み方法</a><br>
+    <a href="https://www.pearsonvue.co.jp/Clients/LPI.aspx">Lpicの申し込み方法</a><br>
+    </p>
+</section>
+
+</div>
+
+{% endblock main %}

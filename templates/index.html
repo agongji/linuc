@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<div class="col-md-9 border-bottom border-right main" id="main-contents"> 
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="101-tab" data-toggle="tab" href="#linuc101" role="tab" aria-controls="101" aria-selected="true">LinuC101の範囲</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="102-tab" data-toggle="tab" href="#linuc102" role="tab" aria-controls="102" aria-selected="false">LinuC102の範囲</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="linuc101" role="tabpanel" aria-labelledby="101-tab">
+
+            <h2 class="main-category">LinuC101の範囲</h2>
+            {% for index_chapter_dict in list101 %}
+            <hr>
+            <div class="container">
+                
+                <h3>{{index_chapter_dict.title}}</h3>
+                <p>
+                    {{index_chapter_dict.sumup}}
+                </p>
+                
+                <h4>求められる水準</h4>
+                <ul class="sub-menu">
+                    {% for li in index_chapter_dict.level %}
+                    <li>{{ li }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h4>キーワードから学習する</h4>
+                <p>
+                    {% for key, value in index_chapter_dict.keywords.items() %}
+                    <button type="button" class="btn btn-outline-primary">
+                        <a href="{{ value }}">{{ key }}</a></button>
+                    {% endfor %}
+                </p>
+
+                <h4>仕上げの模擬試験</h4>
+                <button type="button" class="btn btn-outline-primary btn-lg"><a href="">{{index_chapter_dict.id}}章の練習問題をランダムで解いてみる</a></button>
+
+            </div>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="linuc102" role="tabpanel" aria-labelledby="102-tab">
+            <h2 class="main-category">LinuC102の範囲</h2>
+            {% for index_chapter_dict in list102 %}
+            <hr>
+            <div class="container">
+                <h3>{{index_chapter_dict.title}}</h3>
+                <p>
+                    {{index_chapter_dict.sumup}}
+                </p>
+                
+                <h4>求められる水準</h4>
+                <ul class="sub-menu">
+                    {% for li in index_chapter_dict.level %}
+                    <li>{{ li }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h4>キーワードから学習する</h4>
+                <p>
+                    {% for li in index_chapter_dict.keywords %}
+                    <button type="button" class="btn btn-outline-primary"><a href="">{{ li }}</a></button>
+                    {% endfor %}
+                </p>
+
+                <h4>仕上げの模擬試験</h4>
+                <button type="button" class="btn btn-outline-primary btn-lg"><a href="">{{index_chapter_dict.id}}章の練習問題をランダムで解いてみる</a></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock main %}

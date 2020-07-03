@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>admin</title>
+</head>
+<body>
+{% include 'includes/_navbar4_for_admin.html' %}
+{% include 'includes/_messages.html' %}
+
+{% block main %}{% endblock main %}
+
+
+<script src="/static/ckeditor5/build/ckeditor.js"></script>
+
+<script type="module">
+ClassicEditor
+  .create( document.querySelector( '#editor' ), {    
+    toolbar: {
+      items: [
+        'heading',
+        '|',
+        'bold',
+        'italic',
+        'bulletedList',
+        'numberedList',
+        'blockQuote',
+        'code',
+        'codeBlock',
+        '|',
+        'indent',
+        'outdent',
+        '|',
+        'imageUpload',
+        'insertTable',
+        'mediaEmbed',
+        'undo',
+        'redo',
+        'MathType',
+        'ChemType',
+        'CKFinder'
+      ]
+    },
+    codeBlock: {
+      languages: [
+      { language: 'html', label: 'HTML' },
+      { language: 'javascript', label: 'JavaScript' },
+      { language: 'python', label: 'Python' },          
+      { language: 'javascript', label: 'JavaScript' }, 
+      { language: 'c', label: 'C' }
+
+      ]
+    },
+    language: 'ja',
+    image: {
+      toolbar: [
+        'imageTextAlternative',
+        'imageStyle:full',
+        'imageStyle:side'
+      ]
+    },
+    table: {
+      contentToolbar: [
+        'tableColumn',
+        'tableRow',
+        'mergeTableCells'
+      ]
+    },
+    licenseKey: '',
+  } )
+  .then( editor => {
+      console.log( editor );
+  } )
+  .catch( error => {
+      console.error( error );
+  } );
+</script>
+
+</body>
+</html>

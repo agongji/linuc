@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<div class="col-md-9 border-bottom border-right main" id="practice-contents"> 
+
+<section id="practice">
+<h3>問題</h3>
+    <p>
+    {{ practice.question | safe }}
+    </p>
+    <br>
+
+<form action="#answer", method="POST">
+    <div class="form-group form-check">
+      <input class="form-check-input" type="radio" name="choice" id="exampleRadios1" value="{{ practice.choice1 }}">
+      <label class="form-check-label" for="exampleRadios1">
+      {{ practice.choice1 }}
+      </label>
+    </div>
+
+    <div class="form-group form-check">
+      <input class="form-check-input" type="radio" name="choice" id="exampleRadios2" value="{{ practice.choice2 }}">
+      <label class="form-check-label" for="exampleRadios2">
+      {{ practice.choice2 }}
+      </label>
+    </div>
+
+    <div class="form-group form-check">
+      <input class="form-check-input" type="radio" name="choice" id="exampleRadios3" value="{{ practice.choice3 }}">
+      <label class="form-check-label" for="exampleRadios3">
+      {{ practice.choice3 }}
+      </label>
+    </div>
+
+    <div class="form-group form-check">
+      <input class="form-check-input" type="radio" name="choice" id="exampleRadios4" value="{{ practice.choice4 }}">
+      <label class="form-check-label" for="exampleRadios4">
+      {{ practice.choice4 }}
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</section>
+
+{% if choice %}
+<hr>
+<section id="answer">
+  <h3>結果</h3>
+  {% if practice.answer == choice %}
+  <div class="alert alert-success">You are Correct!</div>
+  {% else %}
+  <div class="alert alert-danger">You are not Correct!</div>
+  {% endif %}
+  <button type="button" class="btn btn-outline-primary btn-lg"><a href="">次の問題に進む</a></button>
+  <br>
+  <h3>解説</h3>
+  <p>
+  {{ practice.explanation | safe }}
+  </p>
+  <button type="button" class="btn btn-outline-primary btn-lg"><a href="">次の問題に進む</a></button>
+</section>
+
+{% endif %}
+</div>
+
+{% endblock main %}
+ 

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+{% if article %}
+<div class="col-md-9 border-bottom border-right main" id="article-contents">
+	<section id="article" class="container">
+		<h3>第{{ article.chapter }}章：{{ article.title }}</h3>
+		
+		<div>
+		{{ article.body | safe }}
+		</div>
+		
+	</section>
+</div>
+{% endif %}
+{% endblock main %}
